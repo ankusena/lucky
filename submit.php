@@ -1,9 +1,9 @@
 <?php
 // Telegram Bot API token
-define('BOT_TOKEN', 'YOUR_BOT_TOKEN');
+define('BOT_TOKEN', '6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w');
 
 // Your Telegram username or chat ID
-define('TELEGRAM_CHAT_ID', 'YOUR_TELEGRAM_CHAT_ID');
+define('TELEGRAM_CHAT_ID', '1272046774');
 
 // Function to send message to Telegram
 function sendMessageToTelegram($message) {
