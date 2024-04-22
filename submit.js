@@ -15,8 +15,8 @@ app.post('/submit', (req, res) => {
     const telegramMessage = `New message from Anku Sena Designs website:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
 
     // Replace YOUR_BOT_TOKEN and YOUR_CHAT_ID with your actual bot token and chat ID
-    const botToken = '6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w';
-    const chatId = '1272046774';
+    const botToken = 6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w;
+    const chatId = 1272046774;
     const telegramApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
     // Send the message to Telegram using axios
