@@ -2,13 +2,13 @@ import requests
 
 def send_telegram_message(name, email, message):
     telegram_api_token = "6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w"
-    chat_id = "@anku_bugaliya"  # Your Telegram username or chat ID
+    chat_id = "1272046774"  # Your Telegram username or chat ID
 
     message_text = f"New message from {name} ({email}):\n\n{message}"
 
     telegram_api_url = f"https://api.telegram.org/bot{telegram_api_token}/sendMessage"
     params = {
-        "chat_id": 1272046774,
+        "chat_id": chat_id,
         "text": message_text
     }
 
