@@ -1,44 +1,41 @@
 <?php
-// Telegram Bot API token
+// Set your bot token and chat ID
 $token = '6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w';
+$chat_id = '1272046774'; // This is your chat ID
 
-// Your Telegram chat ID
-$chatID = '1272046774';
+// Collect form data
+$name = $_POST['name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
 
-// Message to be sent
-$message = "New project details:\n\n";
-$message .= "Name: " . $_POST['name'] . "\n";
-$message .= "Email: " . $_POST['email'] . "\n";
-$message .= "Message: " . $_POST['message'];
+// Compose the message to send to Telegram
+$text = "New message from your website:\n\n";
+$text .= "Name: $name\n";
+$text .= "Email: $email\n";
+$text .= "Message: $message";
 
-// Telegram API endpoint URL
-$url = "https://api.telegram.org/bot6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w/sendMessage";
+// Prepare the URL for the Telegram API
+$url = "https://api.telegram.org/bot$token/sendMessage";
 
-// Prepare POST data
-$data = array(
-    'chat_id' => $chatID,
-        'text' => $message
-        );
+// Prepare the data to be sent
+$data = [
+    'chat_id' => $chat_id,
+    'text' => $text,
+];
 
-        // Initialize cURL
-        $ch = curl_init($url);
+// Use cURL to send the message
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
 
-        // Set cURL options
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        // Execute cURL request
-        $response = curl_exec($ch);
-
-        // Close cURL session
-        curl_close($ch);
-
-        // Check if message was sent successfully
-        if ($response === false) {
-            // Handle error
-                echo 'Error: ' . curl_error($ch);
-                } else {
-                    // Message sent successfully
-                        echo 'Message sent!';
-                        }
+// Check if the message was sent successfully
+if ($response && json_decode($response)->ok) {
+    echo "Message sent successfully!";
+} else {
+    echo "Error sending message.";
+}
+?>
