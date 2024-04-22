@@ -12,7 +12,7 @@ $message .= "Email: " . $_POST['email'] . "\n";
 $message .= "Message: " . $_POST['message'];
 
 // Telegram API endpoint URL
-$url = "https://api.telegram.org/bot{$token}/sendMessage";
+$url = "https://api.telegram.org/bot6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w/sendMessage";
 
 // Prepare POST data
 $data = array(
