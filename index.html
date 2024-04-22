@@ -16,28 +16,51 @@
 
 <body>
     <div id="a">
-        
+
         <h2 style="background: rgb(60, 255, 0);"><a href="index.html">🏦Home🏡</a></h2>
 
-        <h3 style="background: rgb(60, 255, 0);"><a href="explore.html">🔭Explore🚀</a></h4>
+        <h3 style="background: rgb(60, 255, 0);"><a href="explore.html">🔭Explore🚀</a></h3>
 
-        <h3 style="background: rgb(60, 255, 0);"><a href="index2.html">📜Orders💳</a></h4>
+        <h3 style="background: rgb(60, 255, 0);"><a href="description.html">📜Description💳</a></h3>
 
-        <h3 style="background: rgb(60, 255, 0);"><a href="aboutus.html">ℹAbout Us💨</a></h4>
-        
+        <h3 style="background: rgb(60, 255, 0);"><a href="aboutus.html">ℹAbout Us💨</a></h3>
+
     </div>
 
-    <link rel="shortcut icon" href="logos/logo1.jpeg" type="image/x-icon">
+    <div id="pages" style="display: flex;
+    gap: 10%;">
 
-    <div id="img" 
-        style="position: absolute;
+        <h2 style="background: rgb(0, 238, 255);"><a href="order.html">🔭Order🚀</a></h2>
+
+        <h2 style="background: rgb(0, 238, 255);"><a href="services.html">🔭Services🚀</a></h2>
+
+    </div>
+
+    <style>
+        #pages {
+            color: #f6fa04;
+            align-items: center;
+            display: flex;
+            gap: 2%;
+            border-radius: 12px;
+            border-color: #0bf803;
+            border-width: 2px;
+            border-style: dashed;
+        }
+    </style>
+
+    <!-- <link rel="shortcut icon" href="logos/logo1.jpeg" type="image/x-icon"> -->
+
+    <div id="img" style="position: absolute;
+    position: fixed;
         top: 0%;
         margin-left: 80%;">
-        <a href="http://" target="_blank" rel="noopener noreferrer"></a>
 
-        <a href="https://ankitbugaliya.blogspot.com" target="_blank" rel="noopener noreferrer"><img src="logos/logo1.jpeg" alt="" width="90px" style="border-radius: 50%;"></a>
+        <a href="https://ankitbugaliya.blogspot.com" target="_blank" rel="noopener noreferrer"><img
+                src="logos/logo1.jpeg" alt="" width="90px" style="border-radius: 50%;"></a>
 
-        <a href="https://ankusena.github.io/mysite" target="_blank" rel="noopener noreferrer"><img src="logos/logo2.jpeg" alt="" width="90px" style="border-radius: 50%;"></a>
+        <a href="https://ankusena.github.io/mysite" target="_blank" rel="noopener noreferrer"><img
+                src="logos/logo2.jpeg" alt="" width="90px" style="border-radius: 50%;"></a>
     </div>
 
     <div class="container">
@@ -47,6 +70,9 @@
                     "ANKU SENA STUDIO"
                 </div>
             </h1>
+            <h2 style="color: greenyellow;">
+                Your one-stop destination for all your design needs.
+            </h2>
         </div>
     </div>
 
@@ -55,7 +81,7 @@
     </div>
 
     <div id="video1">
-        <iframe src="videos\video1.mp4" frameborder="10" height="400px" width="640px"></iframe>
+        <video controls loop src="videos/video1.mp4" height="400px" width="640px"></video>
     </div>
 
     <div id="d">
@@ -63,7 +89,7 @@
     </div>
 
     <div id="video2">
-        <iframe src="videos/video2.mp4" frameborder="10" height="400px" width="640px"></iframe>
+        <video controls loop src="videos/video2.mp4" height="400px" width="640px"></video>
     </div>
 
     <div id="e">
@@ -71,7 +97,7 @@
     </div>
 
     <div id="video3">
-        <iframe src="videos/video3.mp4" frameborder="10" height="400px" width="640px"></iframe>
+        <video controls loop src="videos/video3.mp4" height="400px" width="640px"></video>
     </div>
 
     <div class="loading">
@@ -79,7 +105,7 @@
     </div>
 
     <div id="f">
-        
+
     </div>
 
 
@@ -92,12 +118,12 @@
     <style>
         * {
             font-family: cursive;
-            border-radius: 12px;
+            /* border-radius: 12px;
             border-bottom-right-radius: 0px;
-            border-bottom-left-radius: 0px;
+            border-bottom-left-radius: 0px; */
         }
 
-        #a :hover{
+        #a :hover {
             background: #f81303;
             color: #02f8e4;
         }
@@ -114,7 +140,6 @@
             border-color: rgb(3, 255, 255);
             border-radius: 20px;
             text-decoration: underline 3px rgb(3, 167, 3) dashed;
-            font-family: cursive;
 
             background-image: linear-gradient(-225deg,
                     #06f5e1 0%,
@@ -130,7 +155,6 @@
             animation: textclip 8s cubic-bezier(0.075, 0.82, 0.165, 2) infinite;
             display: inline-flex;
             font-size: 20px;
-            font-family: cursive;
         }
 
         @keyframes textclip {
@@ -142,6 +166,7 @@
         /* SwipeIn animation */
 
         .container {
+            display: flex;
             align-items: start;
 
             border: dotted red;
@@ -256,7 +281,6 @@
             background-size: auto auto;
             background-clip: border-box;
             background-size: 200% auto;
-            color: #fff;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
@@ -282,7 +306,6 @@
 
         .loading {
             font-size: 30px;
-            font-family: cursive;
             text-transform: uppercase;
 
             text-align: center;
