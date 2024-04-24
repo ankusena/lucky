@@ -14,17 +14,17 @@
 
         <h2 style="display: inline-block; text-decoration: underline rgb(60, 255, 0) dashed;">Contact Us</h2> <br>
 
-        <form action="" onsubmit=" return sender()">
+        <form id="form">
 
-            <input type="text" name="name" placeholder="Your Name" required style="background:#ff000036;">
+            <input type="text" name="name" placeholder="Your Name" required style="background:#ffffffb0;">
 
-            <input type="email" name="email" placeholder="Your Email (Optional)" style="background:#ff000036;">
+            <input type="email" name="email" placeholder="Your Email (Optional)" style="background:#ffffffb0;">
 
             <input type="tel" name="tel" placeholder="Your WhatsApp/Telegram No." required
-                style="background:#ff000036;"> 
+                style="background:#ffffffb0;"> 
 
                 <textarea name="message" placeholder="Write the Details about your DESIGN" required
-                style="background:#ff000036;"></textarea> <br>  <br>
+                style="background:#ffffffb0;"></textarea> <br>  <br>
 
             <h3 style="display: inline-block; color: #0004ff; text-decoration: underline red double; background: transparent;">Choose the type of design you want to order 👉</h3> <br>
 
@@ -39,14 +39,14 @@
 
                 <input type="radio" name="graphics" id="graphics">EVENT CARD <br>
 
-                <input type="radio" name="graphics" id="graphics">ANY OTHER <br>
+                <input type="radio" name="graphics" id="graphics" required>ANY OTHER <br>
             </div> <br>
 
 
 
             <h3 style="display: inline-block; color: #0004ff; text-decoration: underline red double; background: transparent;"> Upload the Video, Image or other file for design 👉 </h3>
 
-            <input type="file" name="file" id="file"> <br> <br>
+            <input style="background: #0327f19f;" type="file" name="file" id="file"><h0 style="color: #353131; background: #a09c9c8a;">(Optional)</h0>  <br> <br>
 
             <input type="image" src="" alt="">
 
@@ -58,6 +58,8 @@
         <p>&copy; 2024 Anku Sena Designs. All rights reserved.</p>
     </footer>
 </body>
+
+<script src="sender.js"></script>
 
 </html>
 
