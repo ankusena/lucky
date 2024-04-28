@@ -4,7 +4,7 @@ define('url', "https://api.telegram.org/bot6918983860:AAGp94A9inhJay50pL_OHf7TXp
 $name = $_GET['name'];
 $message = $_GET['message'];
 $phone = $_GET['phone'];
-$chat_id = '6918983860'; // Remove curly braces
+$chat_id = '-1002018391847'; // Remove curly braces
 
 // Format the message
 $message = urlencode("Name: ".$name."\nPhone: ".$phone."\nMessage: ".$message);
