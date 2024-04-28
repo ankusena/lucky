@@ -7,7 +7,7 @@ $message = $_GET['message'];
 
 $phone = $_GET['phone'];
 
-$chat_id = '{-1002018391847}';
+$chat_id = '{1272046774}';
 
 $message = urlencode("Name:".$name."\nPhone: ".$phone."\nMessage: ".$message);
 
