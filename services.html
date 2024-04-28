@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form to Telegram Channel</title>
+</head>
+<body>
+    <h1>Submit Form to Telegram Channel</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            var form = document.getElementById('myForm');
+            var formData = new FormData(form);
+
+            // Construct the message
+            var message = "Name: " + formData.get('name') + "\n";
+            message += "Email: " + formData.get('email') + "\n";
+            message += "Phone: " + formData.get('phone') + "\n";
+            message += "Message: " + formData.get('message');
+
+            // Replace YOUR_CHANNEL_ID with your actual channel ID
+            var chat_id = '-1002018391847';
+
+            // Construct the URL for sending the message
+            var url = "https://api.telegram.org/bot6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w/sendMessage?chat_id=" + '-1002018391847' + "&text=" + encodeURI(message);
+
+            // Send the message using fetch API
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        alert("Form submitted successfully!");
+                        form.reset(); // Reset the form
+                    } else {
+                        throw new Error('Error sending message');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Failed to submit form. Please try again later.");
+                });
+        }
+    </script>
+</body>
+</html>
