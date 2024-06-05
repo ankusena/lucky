@@ -8,63 +8,72 @@ body {
                     position: fixed;
                         background-color: #333;
                             z-index: 1000;
-                            }
+                                transition: top 0.3s ease-in-out, bottom 0.3s ease-in-out;
+                                }
 
-                            nav ul {
-                                list-style-type: none;
-                                    padding: 0;
-                                        margin: 0;
-                                            display: flex;
-                                            }
-
-                                            nav ul li {
-                                                flex: 1;
+                                nav ul {
+                                    list-style-type: none;
+                                        padding: 0;
+                                            margin: 0;
+                                                display: flex;
                                                 }
 
-                                                nav ul li a {
-                                                    display: block;
-                                                        padding: 14px 16px;
-                                                            text-align: center;
-                                                                text-decoration: none;
-                                                                    color: white;
-                                                                    }
+                                                nav ul li {
+                                                    flex: 1;
+                                                    }
 
-                                                                    nav ul li a:hover {
-                                                                        background-color: #111;
-                                                                        }
+                                                    nav ul li a {
+                                                        display: block;
+                                                            padding: 14px 16px;
+                                                                text-align: center;
+                                                                    text-decoration: none;
+                                                                        color: white;
+                                                                            transition: background-color 0.3s ease-in-out;
+                                                                            }
 
-                                                                        /* Styles for large screens (PC) */
-                                                                        @media (min-width: 768px) {
-                                                                            nav {
-                                                                                    top: 0;
-                                                                                            bottom: auto;
-                                                                                                    justify-content: flex-start;
-                                                                                                        }
+                                                                            nav ul li a img {
+                                                                                width: 20px;
+                                                                                    height: 20px;
+                                                                                        vertical-align: middle;
+                                                                                            margin-right: 8px;
+                                                                                            }
 
-                                                                                                            nav ul {
-                                                                                                                    justify-content: flex-start;
-                                                                                                                        }
+                                                                                            nav ul li a:hover {
+                                                                                                background-color: #111;
+                                                                                                }
 
-                                                                                                                            nav ul li {
-                                                                                                                                    flex: none;
-                                                                                                                                        }
-                                                                                                                                        }
+                                                                                                /* Styles for large screens (PC) */
+                                                                                                @media (min-width: 768px) {
+                                                                                                    nav {
+                                                                                                            top: 0;
+                                                                                                                    bottom: auto;
+                                                                                                                            justify-content: flex-start;
+                                                                                                                                }
 
-                                                                                                                                        /* Styles for small screens (Phones) */
-                                                                                                                                        @media (max-width: 767px) {
-                                                                                                                                            nav {
-                                                                                                                                                    bottom: 0;
-                                                                                                                                                            top: auto;
-                                                                                                                                                                    justify-content: center;
-                                                                                                                                                                        }
+                                                                                                                                    nav ul {
+                                                                                                                                            justify-content: flex-start;
+                                                                                                                                                }
 
-                                                                                                                                                                            nav ul {
-                                                                                                                                                                                    justify-content: center;
-                                                                                                                                                                                        }
+                                                                                                                                                    nav ul li {
+                                                                                                                                                            flex: none;
+                                                                                                                                                                }
+                                                                                                                                                                }
 
-                                                                                                                                                                                            nav ul li {
-                                                                                                                                                                                                    flex: 1;
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        
+                                                                                                                                                                /* Styles for small screens (Phones) */
+                                                                                                                                                                @media (max-width: 767px) {
+                                                                                                                                                                    nav {
+                                                                                                                                                                            bottom: 0;
+                                                                                                                                                                                    top: auto;
+                                                                                                                                                                                            justify-content: center;
+                                                                                                                                                                                                }
+
+                                                                                                                                                                                                    nav ul {
+                                                                                                                                                                                                            justify-content: center;
+                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                    nav ul li {
+                                                                                                                                                                                                                            flex: 1;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                
 }
