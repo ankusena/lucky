@@ -14,7 +14,7 @@
 
         <h2 style="display: inline-block; text-decoration: underline rgb(60, 255, 0) dashed;">Contact Us</h2> <br>
 
-        <form id="submit.php">
+        <form id="designForm">
 
             <input type="text" name="name" placeholder="Your Name" required style="background:#ffffffb0;">
 
@@ -23,43 +23,96 @@
             <input type="tel" name="tel" placeholder="Your WhatsApp/Telegram No." required
                 style="background:#ffffffb0;"> 
 
-                <textarea name="message" placeholder="Write the Details about your DESIGN" required
+            <textarea name="message" placeholder="Write the Details about your DESIGN" required
                 style="background:#ffffffb0;"></textarea> <br>  <br>
 
             <h3 style="display: inline-block; color: #0004ff; text-decoration: underline red double; background: transparent;">Choose the type of design you want to order 👉</h3> <br>
 
             <div id="designs">
-                <input type="radio" name="graphics" id="graphics">GRAPHICS DESIGN <br>
-
-                <input type="radio" name="graphics" id="graphics">LOGO DESIGN <br>
-
-                <input type="radio" name="graphics" id="graphics">THUMBNAIL <br>
-
-                <input type="radio" name="graphics" id="graphics">POSTER <br>
-
-                <input type="radio" name="graphics" id="graphics">EVENT CARD <br>
-
-                <input type="radio" name="graphics" id="graphics" required>ANY OTHER <br>
+                <input type="radio" name="designType" value="GRAPHICS DESIGN" required>GRAPHICS DESIGN <br>
+                <input type="radio" name="designType" value="LOGO DESIGN">LOGO DESIGN <br>
+                <input type="radio" name="designType" value="THUMBNAIL">THUMBNAIL <br>
+                <input type="radio" name="designType" value="POSTER">POSTER <br>
+                <input type="radio" name="designType" value="EVENT CARD">EVENT CARD <br>
+                <input type="radio" name="designType" value="ANY OTHER">ANY OTHER <br>
             </div> <br>
-
-
 
             <h3 style="display: inline-block; color: #0004ff; text-decoration: underline red double; background: transparent;"> Upload the Video, Image or other file for design 👉 </h3>
 
             <input style="background: #0327f19f;" type="file" name="file" id="file"><h0 style="color: #353131; background: #a09c9c8a;">(Optional)</h0>  <br> <br>
 
-            <input type="image" src="" alt="">
-
-            <button type="submit" style="color: #00ffff; font-weight: bold; background: #0011ff48; text-decoration: underline red dashed;">Submit</button>
+            <button type="button" onclick="submitForm()" style="color: #00ffff; font-weight: bold; background: #0011ff48; text-decoration: underline red dashed;">Submit</button>
         </form>
     </section>
 
     <footer>
         <p>&copy; 2024 Anku Sena Designs. All rights reserved.</p>
     </footer>
+
+    <script>
+        async function submitForm() {
+            const form = document.getElementById('designForm');
+            const formData = new FormData(form);
+
+            // Construct the message
+            const message = `
+Name: ${formData.get('name')}
+Email: ${formData.get('email')}
+Phone: ${formData.get('tel')}
+Design Type: ${formData.get('designType')}
+Message: ${formData.get('message')}
+            `;
+
+            // Telegram bot token and channel ID
+            const botToken = 'YOUR_BOT_TOKEN'; // Replace with your bot token
+            const chatId = 'YOUR_CHANNEL_ID'; // Replace with your Telegram channel ID
+
+            try {
+                // Send the text message
+                const textResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                });
+
+                if (!textResponse.ok) {
+                    throw new Error('Failed to send the text message.');
+                }
+
+                // Check if a file is uploaded and send it as a document
+                const fileInput = document.getElementById('file');
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const fileData = new FormData();
+                    fileData.append('chat_id', chatId);
+                    fileData.append('document', file);
+
+                    const fileResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+                        method: 'POST',
+                        body: fileData
+                    });
+
+                    if (!fileResponse.ok) {
+                        throw new Error('Failed to send the file.');
+                    }
+                }
+
+                alert('Form submitted successfully!');
+                form.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to submit form. Please try again.');
+            }
+        }
+    </script>
 </body>
 
 </html>
+
+
 
 
 
