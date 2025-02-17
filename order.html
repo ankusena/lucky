@@ -39,7 +39,7 @@
 
             <h3 style="display: inline-block; color: #0004ff; text-decoration: underline red double; background: transparent;"> Upload the Video, Image or other file for design 👉 </h3>
 
-            <input style="background: #0327f19f;" type="file" name="file" id="file" ><h0 style="color: #353131; background: #a09c9c8a;">(Optional)</h0>  <br> <br>
+            <input style="background: #0327f19f;" type="file" name="file" id="file" multiple><h0 style="color: #353131; background: #a09c9c8a;">(Optional)</h0>  <br> <br>
 
             <button type="button" onclick="submitForm()" style="color: #00ffff; font-weight: bold; background: #0011ff48; text-decoration: underline red dashed;">Submit</button>
         </form>
@@ -64,8 +64,8 @@ Message: ${formData.get('message')}
     `;
 
     // Telegram bot token and channel ID
-    const botToken = 'YOUR_BOT_TOKEN'; // Replace with your bot token
-    const chatId = 'YOUR_CHANNEL_ID'; // Replace with your Telegram channel ID
+    const botToken = '6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w'; // Replace with your bot token
+    const chatId = '-1002018391847'; // Replace with your Telegram channel ID
 
     try {
         console.log('Sending message:', message);
