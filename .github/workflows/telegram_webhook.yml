@@ -32,3 +32,8 @@ jobs:
           git add uploads/
           git commit -m "Add new media from Telegram" || echo "No changes to commit"
           git push
+
+
+      on:
+  schedule:
+    - cron: '*/5 * * * *' # Run every 5 minutes
