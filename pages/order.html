@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anku Sena Designs - Order Form</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+
+
+    <div class="blank-space">
+
+        <div class="logo-btn" onclick="openLuckySite()">
+            🚀
+            <div class="pulse-animation"></div>
+        </div>
+
+        <style>
+            .logo-btn {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffdde1);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .logo-btn:hover {
+                transform: scale(1.2) rotate(10deg);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .logo-btn:active {
+                transform: scale(0.9);
+            }
+
+            .pulse-animation {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.4);
+                animation: pulse 1.5s infinite ease-in-out;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.6;
+                }
+
+                50% {
+                    transform: scale(1.6);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: scale(1);
+                    opacity: 0;
+                }
+            }
+
+            /* ✅ Responsive for smaller devices */
+            @media (max-width: 768px) {
+                .logo-btn {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 18px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .logo-btn {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 14px;
+                }
+            }
+        </style>
+
+        <script>
+            // ✅ Open link in the same tab
+            function openLuckySite() {
+                window.location.href = 'https://ankusena.github.io/lucky';
+            }
+        </script>
+
+
+    </div>
+
+
+
+
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: cursive;
+            font-weight: bold;
+        }
+
+        body {
+            background: linear-gradient(-225deg,
+                    #06f5e1 0%,
+                    #03f80f 29%,
+                    #ff1361 67%,
+                    #fff800 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .blank-space {
+            flex: 1;
+            background: linear-gradient(-225deg,
+                    #06f5e1 0%,
+                    #03f80f 29%,
+                    #ff1361 67%,
+                    #fff800 100%);
+        }
+
+        .content {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Form Section */
+        section {
+            width: 80%;
+            max-width: 500px;
+            background: url(images/form_image2.avif) no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        h2,
+        h3 {
+            margin-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        #designs {
+            text-align: left;
+        }
+
+        /* Submit Button Animation */
+        button {
+            background: rgba(30, 255, 0, 0.5);
+            color: #00ffff;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: x-large;
+            text-decoration: underline red dashed;
+        }
+
+        button:hover {
+            background: rgba(255, 0, 0, 0.8);
+            color: blue;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #000000;
+        }
+
+        /* Responsive Logos */
+        @media (max-width: 768px) {
+            .logo-container img {
+                width: 60px;
+            }
+
+            .blank-space {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="blank-space"></div>
+        <div class="content">
+            <section id="contact">
+                <h2 style="text-decoration: underline rgb(1, 47, 255) dashed; color: red;">Contact Us</h2>
+
+                <form id="designForm" action="submit.html" method="POST">
+
+                    <input type="text" name="name" placeholder="Your Name" required style="background:#ffffffb0;">
+                    <input type="email" name="email" placeholder="Your Email (Optional)" style="background:#ffffffb0;">
+                    <input type="tel" name="tel" placeholder="Your WhatsApp/Telegram No." required
+                        style="background:#ffffffb0;">
+                    <textarea name="message" placeholder="Write the Details about your DESIGN" required
+                        style="background:#ffffffb0;"></textarea>
+
+                    <h3 style="color: #0004ff; text-decoration: underline red double;">Choose the type of design you
+                        want to order 👉</h3>
+                    <div id="designs">
+                        <label><input type="radio" name="designType" value="GRAPHICS DESIGN" required> GRAPHICS
+                            DESIGN</label><br>
+                        <label><input type="radio" name="designType" value="LOGO DESIGN"> LOGO DESIGN</label><br>
+                        <label><input type="radio" name="designType" value="THUMBNAIL"> THUMBNAIL</label><br>
+                        <label><input type="radio" name="designType" value="POSTER"> POSTER</label><br>
+                        <label><input type="radio" name="designType" value="EVENT CARD"> EVENT CARD</label><br>
+                        <label><input type="radio" name="designType" value="ANY OTHER"> ANY OTHER</label>
+                    </div>
+
+                    <h3 style="color: #fbff00; text-decoration: underline red double;">Upload the Video, Image or other
+                        file for design 👉</h3>
+                    <input style="background: #0327f19f;" type="file" name="file" id="file" multiple>
+                    <small style="color: #353131; background: #a09c9c8a;">(Optional)</small>
+
+                    <button type="submit" onclick="submitForm()">Submit</button>
+                </form>
+
+                <script>
+                    async function submitForm() {
+                        const form = document.getElementById('designForm');
+                        const formData = new FormData(form);
+
+                        // Construct the message
+                        const message = `
+            Name: ${formData.get('name')}
+            Email: ${formData.get('email')}
+            Phone: ${formData.get('tel')}
+            Design Type: ${formData.get('designType')}
+            Message: ${formData.get('message')}
+                `;
+
+                        // Telegram bot token and channel ID
+                        const botToken = '6918983860:AAGp94A9inhJay50pL_OHf7TXpO0uchgS0w'; // Replace with your bot token
+                        const chatId = '-1002018391847'; // Replace with your Telegram channel ID
+
+                        try {
+                            console.log('Sending message:', message);
+
+                            // Send the text message
+                            const textResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    chat_id: chatId,
+                                    text: message
+                                })
+                            });
+
+                            if (!textResponse.ok) {
+                                throw new Error(`Failed to send message: ${textResponse.status}`);
+                            }
+                            console.log('Text message sent successfully.');
+
+                            // Check if multiple files are uploaded
+                            const fileInput = document.getElementById('file');
+                            if (fileInput.files.length > 0) {
+                                console.log(`Uploading ${fileInput.files.length} file(s)...`);
+
+                                for (const file of fileInput.files) {
+                                    console.log('Uploading file:', file.name);
+
+                                    const fileData = new FormData();
+                                    fileData.append('chat_id', chatId);
+                                    fileData.append('document', file);
+
+                                    const fileResponse = await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+                                        method: 'POST',
+                                        body: fileData
+                                    });
+
+                                    if (!fileResponse.ok) {
+                                        throw new Error(`Failed to send file: ${file.name}`);
+                                    }
+                                    console.log(`File ${file.name} sent successfully.`);
+                                }
+                            }
+
+                            alert('Form submitted successfully!');
+                            form.reset();
+                        } catch (error) {
+                            console.error('Error:', error);
+                            alert('Failed to submit form. Please try again later.');
+                        }
+                    }
+                </script>
+
+                <footer>
+                    <p>&copy; 2024 Anku Sena Designs. All rights reserved.</p>
+                </footer>
+            </section>
+        </div>
+        <div class="blank-space"></div>
+    </div>
+</body>
+
+</html>
