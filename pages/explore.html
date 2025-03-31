@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Telegram Media Gallery</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #0d0d0d;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background: url('images/hero-bg.jpeg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 3rem;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+
+        .gallery {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00fff7;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.8);
+        }
+
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        #lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+
+        #close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                padding: 30px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        🚀 Explore Stunning Media from Our Telegram Channel!
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery">
+        <h1>📸 Latest Media Uploads 🎥</h1>
+        <div class="gallery-container" id="gallery"></div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <span id="close">&times;</span>
+        <img id="lightbox-content">
+    </div>
+
+    <!-- JavaScript for Loading Media -->
+    <script>
+        async function loadMedia() {
+            const response = await fetch('uploads.json');
+            const media = await response.json();
+            const gallery = document.getElementById('gallery');
+
+            gallery.innerHTML = media
+                .map(item => {
+                    const isImage = item.endsWith('.jpg');
+                    return `
+                    <div class="gallery-item" onclick="openLightbox('uploads/${item}')">
+                        ${
+                            isImage
+                                ? `<img src="uploads/${item}" alt="Image">`
+                                : `<video src="uploads/${item}" controls></video>`
+                        }
+                    </div>
+                `;
+                })
+                .join('');
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightbox-content');
+            lightbox.style.display = 'block';
+            lightboxContent.src = src;
+        }
+
+        document.getElementById('close').onclick = function () {
+            document.getElementById('lightbox').style.display = 'none';
+        };
+
+        // Load media on page load
+        loadMedia();
+    </script>
+</body>
+
+</html>

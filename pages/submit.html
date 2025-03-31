@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission - Anku Sena Designs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-family: cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .loading-container {
+            text-align: center;
+        }
+
+        .loading-container video {
+            width: 60%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 20px;
+            margin-bottom: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            font-size: 24px;
+            color: #00ff0d;
+        }
+    </style>
+</head>
+
+<body onload="showLoading()">
+
+    <div class="loading-container" id="loadingContainer">
+        <video src="videos/animated_video.mp4" autoplay loop></video>
+        <p class="quote">"Creativity takes courage." - Henri Matisse</p>
+        <p class="quote">"Design adds value faster than it adds costs." - Joel Spolsky</p>
+        <p class="quote">"Good design is good business." - Thomas J. Watson</p>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        🎉 Your form has been successfully submitted! 🎉
+    </div>
+
+    <script>
+        function showLoading() {
+            setTimeout(() => {
+                document.getElementById('loadingContainer').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }, 8000); // Show success message after 8 seconds
+        }
+    </script>
+</body>
+
+</html>
