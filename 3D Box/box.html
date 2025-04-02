@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Services - 3D Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div id="page3">
+        <div class="container">
+            <div class="cuboid" id="cuboid">
+                <!-- Faces of Cuboid -->
+                <div class="face front">
+                    <img src="images/img1.jpeg" alt="Web Design" />
+                </div>
+                <div class="face back">
+                    <div class="order-now">
+                        <a href="pages/order.html" class="btn-advanced">ORDER NOW</a>
+                    </div>
+                </div>
+                <div class="face left">Graphic Design Services</div>
+                <div class="face right">UI/UX Design Consulting</div>
+                <div class="face top">
+                    <img src="images/img12.jpeg" alt="UI/UX Design" />
+                </div>
+                <div class="face bottom">
+                    <img src="images/img10.jpeg" class="btn-rotate" onclick="toggleRotation()" alt="Rotate Button" />
+                </div>
+            </div>
+        </div>
+        <!-- Manual Rotate Button Below Cuboid -->
+        <button class="btn-manual" onclick="toggleRotation()">Manual Rotate</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TALENT HUB | Design Powerhouse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&family=Montserrat:wght@300;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background: #000;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh;
+        }
+
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand-name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .brand-name span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            filter: blur(5px);
+        }
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            max-width: 800px;
+            margin-bottom: 4rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .tagline span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            box-shadow: 0 10px 30px rgba(255, 0, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: scale(0.95);
+            box-shadow: 0 15px 40px rgba(255, 0, 204, 0.5);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .dynamic-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            animation: shapeAppear 2s forwards;
+        }
+
+        @keyframes shapeAppear {
+            to { opacity: 0.4; }
+        }
+
+        .scrolling-tech {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            white-space: nowrap;
+            color: rgba(255, 255, 255, 0.05);
+            font-size: 10rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            animation: scrollText 30s linear infinite;
+            user-select: none;
+            z-index: 1;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Glitch effect for dramatic moments */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch::before {
+            color: #0ff;
+            z-index: -1;
+            animation: glitch-effect 3s infinite;
+        }
+
+        .glitch::after {
+            color: #f0f;
+            z-index: -2;
+            animation: glitch-effect 2s infinite reverse;
+        }
+
+        @keyframes glitch-effect {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="video-bg"></div>
+    
+    <div class="dynamic-bg" id="dynamicBg"></div>
+
+    <div class="hero">
+        <h1 class="brand-name glitch" data-text="TALENT HUB">
+            <span>T</span><span>A</span><span>L</span><span>E</span><span>N</span><span>T</span>
+            <span style="width: 40px;"></span>
+            <span>H</span><span>U</span><span>B</span>
+        </h1>
+        
+        <p class="tagline">
+            <span>Where</span> <span>exceptional</span> <span>design</span> <span>meets</span> 
+            <span>unmatched</span> <span>talent</span>
+        </p>
+        
+        <button class="cta-button">UNLEASH CREATIVITY</button>
+    </div>
+
+    <div class="scrolling-tech">DESIGN • CREATIVITY • INNOVATION • STRATEGY • BRANDING • UX/UI • MOTION •</div>
+
+    <script>
+        // Animate brand name letters one by one
+        const letters = document.querySelectorAll('.brand-name span');
+        letters.forEach((letter, i) => {
+            setTimeout(() => {
+                letter.style.animation = `letterDrop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards ${i * 0.1}s`;
+                letter.style.opacity = '1';
+                letter.style.filter = 'blur(0)';
+                
+                // Add dynamic background shapes for each letter
+                if (i % 2 === 0) {
+                    createShape(letter.textContent);
+                }
+            }, 500 + i * 100);
+        });
+
+        // Create dynamic background shapes
+        function createShape(char) {
+            const colors = ['#ff00cc', '#33ff33', '#3399ff', '#ff9933'];
+            const bg = document.getElementById('dynamicBg');
+            const shape = document.createElement('div');
+            shape.className = 'shape';
+            
+            shape.style.width = `${100 + Math.random() * 300}px`;
+            shape.style.height = shape.style.width;
+            shape.style.background = colors[Math.floor(Math.random() * colors.length)];
+            shape.style.left = `${10 + Math.random() * 80}%`;
+            shape.style.top = `${10 + Math.random() * 80}%`;
+            shape.style.animationDelay = `${Math.random() * 2}s`;
+            
+            bg.appendChild(shape);
+            
+            // Make shapes pulse
+            setInterval(() => {
+                shape.style.transform = `scale(${1 + Math.random() * 0.5})`;
+            }, 2000 + Math.random() * 3000);
+        }
+
+        // Animate tagline words
+        const taglineWords = document.querySelectorAll('.tagline span');
+        taglineWords.forEach((word, i) => {
+            setTimeout(() => {
+                word.style.transition = `all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${i * 0.2 + 2.5}s`;
+                word.style.opacity = '1';
+                word.style.transform = 'translateY(0)';
+            }, 2500 + i * 200);
+        });
+
+        // Animate CTA button
+        setTimeout(() => {
+            document.querySelector('.cta-button').style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 4s';
+            document.querySelector('.cta-button').style.opacity = '1';
+            document.querySelector('.cta-button').style.transform = 'scale(1)';
+        }, 4000);
+
+        // Add glitch effect at intervals
+        setInterval(() => {
+            document.querySelector('.brand-name').classList.add('glitch-active');
+            setTimeout(() => {
+                document.querySelector('.brand-name').classList.remove('glitch-active');
+            }, 500);
+        }, 8000);
+
+        // Button click effect
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            // Explosion effect
+            for (let i = 0; i < 50; i++) {
+                createShape('★');
+            }
+            
+            // Redirect (replace with your actual link)
+            setTimeout(() => {
+                window.location.href = "#"; // Your booking/contact page
+            }, 1000);
+        });
+
+        // CSS Keyframes for letter drop
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes letterDrop {
+                0% { transform: translateY(-100%) rotateX(90deg); opacity: 0; }
+                50% { transform: translateY(20%) rotateX(0); opacity: 1; }
+                100% { transform: translateY(0) rotateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
